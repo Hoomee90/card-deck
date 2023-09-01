@@ -15,6 +15,10 @@ function printCard(value, suit) {
     cardElement.style.color = "red";
   } 
   h1.after(cardElement);
+  if (value === 2) {
+    const br = document.createElement("br")
+    document.querySelector("p").prepend(br);
+  }
 }
 
 window.addEventListener("load", function() {
