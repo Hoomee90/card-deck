@@ -6,7 +6,7 @@ function constructCardValues() {
 } 
 
 //UI logic
-function printCard(value, suit) {
+function printCard(value, suit, index) {
   const h1 = document.querySelector("#title");
 
   cardElement = document.createElement("p");
@@ -15,9 +15,9 @@ function printCard(value, suit) {
     cardElement.style.color = "red";
   } 
   h1.after(cardElement);
-  if (value === 2) {
+  if (index === 0) {
     const br = document.createElement("br")
-    document.querySelector("p").prepend(br);
+    document.querySelector("p").after(br);
   }
 }
 
@@ -26,11 +26,11 @@ window.addEventListener("load", function() {
   
   cardSuits.forEach(suit => {
     cardValues = constructCardValues();
-    cardValues.forEach(value => {
+    cardValues.forEach((value, index) => {
       if (Number.isInteger(value)){
         value += 2
       }     
-      printCard(value, suit);
+      printCard(value, suit, index);
     });
   });
 });
