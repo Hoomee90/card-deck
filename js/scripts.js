@@ -2,7 +2,7 @@
 function constructCardValues() {
   let cardValues = Array.from({ length: 9 }, (value, position) => position);
   cardValues.push("Jack", "Queen", "King", "Ace");
-  return cardValues
+  return cardValues.reverse();
 } 
 
 //UI logic
@@ -11,6 +11,9 @@ function printCard(value, suit) {
 
   cardElement = document.createElement("p");
   cardElement.append(value + " of " + suit);
+  if (suit === "Diamonds" || suit === "Hearts") {
+    cardElement.style.color = "red";
+  } 
   h1.after(cardElement);
 }
 
